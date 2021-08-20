@@ -1,6 +1,29 @@
 # sql-problem-solve
 
-## leetcode 184 Department Highest Salary(Medium)
+## leetcod 180. Consecutive Numbers(Medium)
+
+![](https://i.imgur.com/GIgHZwI.png)
+
+```
+SELECT DISTINCT
+    l1.Num AS ConsecutiveNums
+FROM
+    Logs l1,
+    Logs l2,
+    Logs l3
+WHERE
+    l1.Id = l2.Id - 1
+    AND l2.Id = l3.Id - 1
+    AND l1.Num = l2.Num
+    AND l2.Num = l3.Num
+;
+```
+
+![](https://i.imgur.com/Cn2oAZv.png)
+
+---
+
+## leetcode 184. Department Highest Salary(Medium)
 
 ![](https://i.imgur.com/uDhijvD.png)
 
@@ -26,12 +49,11 @@ where R.DepartmentId = d.Id;
 솔루션에 있는 코드는 508초,
 위 해당코드의 경우 496초가 나왔다. 실행계획을 봤을때 Type All로 되어있어서 느릴줄 알았는데 생각보다 빠른 코드였다. 조금 더 공부후 최적화를 해볼 예정이다. With 구문은 가독성이 너무 떨어져 사용하였다.
 
-
+--- 
 ## leetcode 181.(easy)
 
 ![](https://i.imgur.com/W7v5lx9.png)
 
---- 
 
 ```
 solv1)
