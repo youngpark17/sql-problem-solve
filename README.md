@@ -1,5 +1,23 @@
 # sql-problem-solve
 
+## 프로그래머스 우유와 요거트가 담긴 장바구니 - Level4
+
+![](https://i.imgur.com/G31uG0K.png)
+
+```
+WITH R AS(
+select DISTINCT c.CART_ID as 'id', c.NAME as 'tmp'
+from CART_PRODUCTS c
+where c.NAME IN ('Yogurt','Milk')
+order by id
+)
+    
+select id as "CART_ID" from R
+group by id
+having count(tmp)>1
+
+```
+
 ## 프로그래머스 입양 시각 구하기(2) - Level4
 
 ![](https://i.imgur.com/M0aySwJ.png)
