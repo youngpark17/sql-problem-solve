@@ -1,5 +1,74 @@
 # sql-problem-solve
 
+## 프로그래머스 입양 시각 구하기(2) - Level4
+
+![](https://i.imgur.com/M0aySwJ.png)
+
+테이블에 없는 HOUR 컬럼에 대해서 0으로 select해야해서 임시 테이블 생성 후 처리하였다.
+
+
+```
+with R as(
+select hour(DATETIME) as "HOUR",
+       count(ANIMAL_ID) as "COUNT"
+       from ANIMAL_OUTS
+       group by hour(DATETIME)
+       order by hour(DATETIME)
+    )
+
+,TIME AS(
+SELECT 0 AS h
+union
+SELECT 1 AS h
+union
+SELECT 2 AS h
+union
+SELECT 3 AS h
+union
+SELECT 4 AS h
+union
+SELECT 5 AS h
+union
+SELECT 6 AS h
+union
+SELECT 7 AS h
+union
+SELECT 8 AS h
+union
+SELECT 9 AS h
+union
+SELECT 10 AS h
+union
+SELECT 11 AS h
+union
+SELECT 12 AS h
+union
+SELECT 13 AS h
+union
+SELECT 14 AS h
+union
+SELECT 15 AS h
+union
+SELECT 16 AS h
+union
+SELECT 17 AS h
+union
+SELECT 18 AS h
+union
+SELECT 19 AS h
+union
+SELECT 20 AS h
+union
+SELECT 21 AS h
+union
+SELECT 22 AS h
+union
+SELECT 23 AS h
+)
+select t.h as "HOUR",ifnull(R.COUNT,0) as "COUNT" from TIME t
+left join R on t.h = R.HOUR;
+```
+
 ## leetcod 180. Consecutive Numbers(Medium)
 
 ![](https://i.imgur.com/GIgHZwI.png)
