@@ -1,5 +1,20 @@
 # sql-problem-solve
 
+## 오랜 기간 보호한 동물(2) - Level3
+(https://programmers.co.kr/learn/courses/30/lessons/59411)
+
+````
+select o.ANIMAL_ID,
+       o.NAME 
+       from ANIMAL_OUTS o
+       join ANIMAL_INS i
+       on o.ANIMAL_ID = i.ANIMAL_ID
+       order by datediff(o.DATETIME,i.DATETIME) DESC
+       limit 2;
+
+````
+datediff를 알면 풀 수 있는 문제
+
 ## 프로그래머스 우유와 요거트가 담긴 장바구니 - Level4
 
 ![](https://i.imgur.com/G31uG0K.png)
